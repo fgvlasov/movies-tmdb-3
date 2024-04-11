@@ -4,6 +4,7 @@ import Pagination from '@/components/Pagination';
 import Genre from '@/components/Genre';
 import useGenre from '@/hooks/useGenre';
 import MovieCard from '@/components/MovieCard';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const Movies = () => {
   const [state, setState] = useState([]); //store the fetched data
@@ -11,6 +12,7 @@ const Movies = () => {
   const [genre, setGenre] = useState([]); //used to store the original genre values
   const [value, setValue] = useState([]); //used to store the selected genre values
   const genreURL = useGenre(value);
+  const { data: session } = useSession();
 
   const fetchTrending = async () => {
     const data = await fetch(`
@@ -24,6 +26,10 @@ const Movies = () => {
   }, [page, genreURL]);
 
   //console.log(page);
+
+  if (session) {
+    return <h1 className="text-lg font-semibold md:text-2xl">Logged user!</h1>;
+  }
 
   return (
     <div className="container">
