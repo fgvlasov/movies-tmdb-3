@@ -1,13 +1,13 @@
-// pages/api/auth/[...nextauth].ts
-import NextAuth, { Credentials } from 'next-auth';
-import { NextApiRequest, NextApiResponse } from 'next';
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { signIn } from 'next-auth/react'; // Import signIn function
 
 export default NextAuth({
   providers: [
-    Credentials({
+    CredentialsProvider({
       credentials: {
-        email: { label: 'Email', type: 'email' },
-        password: { label: 'Password', type: 'password' },
+        email: {},
+        password: {},
       },
       async authorize(credentials: Record<string, string>) {
         try {
@@ -18,8 +18,13 @@ export default NextAuth({
           });
 
           if (response.ok) {
-            const user = await response.json();
-            return Promise.resolve(user);
+            const { access_token } = await response.json();
+            // Store the token in the session
+            await signIn('credentials', { token: access_token });
+            // Resolve with user data
+            return Promise.resolve({
+              /* user data */
+            });
           } else {
             return Promise.resolve(null);
           }
@@ -44,30 +49,6 @@ export default NextAuth({
     async session(session, token) {
       session.user = token.user;
       return session;
-    },
-  },
-  pages: {
-    signIn: '/auth/signin',
-    signOut: '/auth/signout',
-    error: '/auth/error', // Error code received and cannot be processed.
-    verifyRequest: '/auth/verify-request', // Used for check email action verification requests
-    newUser: null, // If set, new users will be directed here on first sign in
-  },
-  events: {
-    signIn: async (message) => {
-      // Add custom signIn event handling
-    },
-    signOut: async (message) => {
-      // Add custom signOut event handling
-    },
-    createUser: async (message) => {
-      // Add custom createUser event handling
-    },
-    linkAccount: async (message) => {
-      // Add custom linkAccount event handling
-    },
-    session: async (message) => {
-      // Add custom session event handling
     },
   },
 });
