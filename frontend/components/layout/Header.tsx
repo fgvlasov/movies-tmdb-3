@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,19 +6,24 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { Search, Package2, CircleUser } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
+import { logout } from '@/actions/auth'
+import { Search, Package2, CircleUser, LogIn } from 'lucide-react';
+import { cookies } from 'next/headers'
+import Link from 'next/link'
+import { SubmitButton } from '@/app/(auth)/login/submit-button'
+import { LogoutButton } from '@/app/(auth)/login/logout-button'
 
 const Header = () => {
+  const user = cookies().get("session")
+
   return (
     <div className="container">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
-            href="#"
+            href="/"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
           >
             <Package2 className="h-6 w-6" />
@@ -42,6 +47,12 @@ const Header = () => {
           >
             TV Series
           </Link>
+          <Link
+            href="/users"
+            className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
+          >
+            Users
+          </Link>
         </nav>
 
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
@@ -55,22 +66,41 @@ const Header = () => {
               />
             </div>
           </form>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {user 
+          ? 
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary" size="icon" className="rounded-full">
+                  <CircleUser className="h-5 w-5" />
+                  <span className="sr-only">Toggle user menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href="/favorites" className="w-full">
+                    My Favs
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <LogoutButton>
+                  <DropdownMenuItem className="w-full cursor-pointer">
+                    LOGOUT
+                  </DropdownMenuItem>
+                </LogoutButton>
+                
+              </DropdownMenuContent>
+            </DropdownMenu>
+          : 
+            <Button asChild variant="secondary" size="icon" className="rounded-full">
+              <Link href="/login">
+                <LogIn className="h-5 w-5" />
+                <span className="sr-only">Login</span>
+              </Link>
+            </Button>
+          }
         </div>
       </header>
     </div>
