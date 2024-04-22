@@ -24,7 +24,7 @@ export async function updateSession() {
   }
  
   const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-  cookies().set('session', session, {
+  cookies().set('local_session', session, {
     httpOnly: true,
     secure: true,
     expires: expires,

@@ -8,15 +8,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
-import { logout } from '@/actions/auth'
 import { Search, Package2, CircleUser, LogIn } from 'lucide-react';
 import { cookies } from 'next/headers'
 import Link from 'next/link'
-import { SubmitButton } from '@/app/(auth)/login/submit-button'
 import { LogoutButton } from '@/app/(auth)/login/logout-button'
 
 const Header = () => {
-  const user = cookies().get("session")
+  const user = cookies().get("local_session")
 
   return (
     <div className="container">
@@ -107,4 +105,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header
