@@ -10,7 +10,7 @@ export const authLogin = async (email, password) => {
     return session
 
   } catch (error) {
-    console.error("Error login in", error.message)
+    console.error("Error login in.", error.message)
     throw error
   }
 }
