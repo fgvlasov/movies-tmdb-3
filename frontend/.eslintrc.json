@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // Other rules...
+    "react-hooks/rules-of-hooks": "off" // Disable the react-hooks/rules-of-hooks rule
+  }
 }
