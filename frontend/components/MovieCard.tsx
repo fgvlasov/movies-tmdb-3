@@ -43,6 +43,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         />
         <CardTitle className="text-md  text-center font-medium p-2">
           {title || name}
+          {id}
         </CardTitle>
         <CardContent>
           <div className="flex items-center justify-between">

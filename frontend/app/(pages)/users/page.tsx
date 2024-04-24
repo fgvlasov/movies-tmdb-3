@@ -34,6 +34,9 @@ export default function UsersPage() {
             <div className="grid grid-cols-2 gap-4" key={user.id}>
               <div>Email: {user.email}</div>
               <div>Role: {user.role}</div>
+              <div>
+                <input type="checkbox">Delete</input>
+              </div>
             </div>
           ))}
       </div>

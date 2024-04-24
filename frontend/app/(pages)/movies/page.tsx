@@ -23,7 +23,7 @@ const Movies = () => {
     fetchTrending();
   }, [page, genreURL]);
 
-  //console.log(page);
+  console.log(state);
 
   return (
     <div className="container">
