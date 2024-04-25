@@ -1,15 +1,18 @@
 import { authLogin } from "@/modules/supabase/auth/authLogin.js"
+import { getUserByAuthId } from "@/modules/supabase/database/user/getUserByAuthId"
 
 export const post_login = async (req, res, next) => {
   
   let {email, password} = req.body
   
-  // console.log("Backend req: ", req.body);
+
   try {
 
     let data = await authLogin(email, password)
-    
-    res.status(200).send(data)
+    let user = await getUserByAuthId(data.user.id)
+    // console.log("Backend req: ", data);
+    // return
+    res.status(200).send({data, user})
 
   } catch (error) {
     console.error("Failed to login on SB")

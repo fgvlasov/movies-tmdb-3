@@ -6,11 +6,11 @@ export const createAuthUser = async (email: string, password: string) => {
       email, password
     })
     
-    if (error) { 
-      console.log("ERR:", error)
+    if (!error) { 
+      return data.user.id
     }
-       
-    return data.user.id
+    console.log("ERR:", error)
+    
 
   } catch (error) {
     console.error("Error creating auth user", error.message)

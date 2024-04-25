@@ -8,9 +8,13 @@ const Movies = () => {
   const [page, setPage] = useState(1); //keep a track of the page numbers
 
   const fetchTrending = async () => {
-    const data = await fetch(`
-    https://api.themoviedb.org/3/trending/all/day?api_key=e81c223d31b00c7d1171c0b4e9de5c4d&page=${page}`);
+    const data = await fetch(
+      "@/lib/trending-movies.json"
+      // `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_KEY}&page=${page}`
+    );
     const dataJ = await data.json();
+    console.log(dataJ);
+    
     setState(dataJ.results);
   };
 

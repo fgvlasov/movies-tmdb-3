@@ -1,6 +1,6 @@
 "use client"
 
-import { logout } from "@/actions/auth"
+import { logoutAction } from "@/actions/auth"
 
 interface LogoutButtonProps {
   children?: React.ReactNode
@@ -10,7 +10,7 @@ export const LogoutButton = ({
   children
 }: LogoutButtonProps) => {
   const onClick = () => {
-    logout()
+    logoutAction()
   }
 
   return (

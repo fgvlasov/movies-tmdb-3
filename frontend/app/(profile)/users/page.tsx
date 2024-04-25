@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import useUserStore from '@/lib/userStore';
 
-export default function UsersPage() {
+const AdminPage = () => {
   const [users, setUsers] = useState();
   const [loading, setLoading] = useState<boolean>(true);
   const user = useUserStore((state) => state.user);
@@ -29,8 +29,7 @@ export default function UsersPage() {
       <h2 className="font-bold mb-8">Authenticated users:</h2>
       <div className="space-y-4">
         {loading && <div>Loading Users</div>}
-        {users &&
-          users.map((user: any) => (
+        {users && users?.map((user: any) => (
             <div className="grid grid-cols-2 gap-4" key={user.id}>
               <div>Email: {user.email}</div>
               <div>Role: {user.role}</div>
@@ -40,3 +39,5 @@ export default function UsersPage() {
     </div>
   );
 }
+
+export default AdminPage
