@@ -11,13 +11,11 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { changeAdmin, getSession } from '@/actions/auth';
+import { deleteUser } from '@/actions/auth';
 
 const AdminPage = () => {
   const [users, setUsers] = useState();
   const [loading, setLoading] = useState<boolean>(true);
-  //const session = await getSession();
-
   const getUsers = async () => {
     const data = await fetch(`http://localhost:8080/users`, {
       method: 'GET',
@@ -25,31 +23,6 @@ const AdminPage = () => {
     const users = await data.json();
     setUsers(users);
     setLoading(false);
-  };
-
-  const deleteUser = (authId: any) => {
-    fetch(`http://localhost:8080/auth/user`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-      },
-      body: JSON.stringify({ authId }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // User deleted successfully
-          // Refresh the user list
-          getUsers();
-        } else {
-          // Failed to delete user
-          console.error('Failed to delete user');
-        }
-      })
-      .catch((error) => {
-        // Error occurred during deletion
-        console.error('Error deleting user:', error);
-      });
   };
 
   useEffect(() => {
