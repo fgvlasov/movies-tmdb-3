@@ -99,7 +99,7 @@ export const deleteUser = async (authId: any) => {
 
   let user_token = session.token;
 
-  const deleteUserSupabase = await fetch('http://localhost:8080/auth/user', {
+  await fetch('http://localhost:8080/auth/user', {
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
