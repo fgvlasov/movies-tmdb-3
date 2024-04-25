@@ -4,6 +4,7 @@ import Pagination from '@/components/Pagination';
 import Genre from '@/components/Genre';
 import useGenre from '@/hooks/useGenre';
 import MovieCard from '@/components/MovieCard';
+import useMovieStore from '@/stores/moviesStore';
 
 const Movies = () => {
   const [state, setState] = useState([]); //store the fetched data
@@ -11,6 +12,7 @@ const Movies = () => {
   const [genre, setGenre] = useState([]); //used to store the original genre values
   const [value, setValue] = useState([]); //used to store the selected genre values
   const genreURL = useGenre(value);
+  const { favMovies } = useMovieStore.getState();
 
   const fetchTrending = async () => {
     const data = await fetch(`
@@ -23,7 +25,9 @@ const Movies = () => {
     fetchTrending();
   }, [page, genreURL]);
 
-  //console.log(page);
+  useEffect(() => {
+    console.log(favMovies);
+  }, []);
 
   return (
     <>
@@ -36,6 +40,7 @@ const Movies = () => {
         value={value}
         setValue={setValue}
       />
+      <p>{favMovies}</p>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         {state.map((Val) => (
           <MovieCard data={Val} key={Val.id} />

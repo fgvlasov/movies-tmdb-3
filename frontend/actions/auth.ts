@@ -3,6 +3,7 @@ import { getIronSession } from 'iron-session';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import useMovieStore from '@/stores/moviesStore';
 
 import { LoginFormSchema, FormState } from '@/lib/schemas';
 import {
@@ -110,4 +111,54 @@ export const deleteUser = async (authId: any) => {
   });
 
   return;
+};
+
+let fav_movies: any[] = [];
+
+export const addFavourites = async (movie: any) => {
+  const session = await getSession();
+  const { favMovies, addFavorite } = useMovieStore.getState();
+
+  let auth_id = session.userId;
+  let user_token = session.token;
+  let is_admin = true;
+
+  if (!fav_movies.includes(movie)) {
+    fav_movies.push(movie);
+  }
+  // Check if the movie already exists in favorites
+  if (!favMovies.some((favMovie: { id: any }) => favMovie.id === movie)) {
+    addFavorite(movie); // Add the movie to favorites
+  }
+  console.log(favMovies);
+
+  await fetch('http://localhost:8080/auth/user', {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${user_token}`,
+    },
+    method: 'PUT',
+    body: JSON.stringify({ auth_id, is_admin, fav_movies }),
+  });
+};
+
+export const deleteFavourites = async (movie: any) => {
+  const session = await getSession();
+
+  let auth_id = session.userId;
+  let user_token = session.token;
+  let is_admin = true;
+
+  fav_movies = fav_movies.filter((movieId) => movieId !== movie);
+
+  await fetch('http://localhost:8080/auth/user', {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${user_token}`,
+    },
+    method: 'PUT',
+    body: JSON.stringify({ auth_id, is_admin, fav_movies }),
+  });
 };
