@@ -4,11 +4,11 @@ import { SubmitButton } from './submit-button';
 import { Input } from '@/components/ui/input';
 
 export function LoginForm() {
-  const [state, action] = useFormState(login, undefined);
+  const [state, formAction] = useFormState(login, undefined);
 
   return (
     <form
-      action={action}
+      action={formAction}
       className="w-[400px] p-4 border shadow-md my-20 flex flex-col gap-4 rounded-sm"
     >
       <div className="grid grid-cols-[20%,auto] items-center  gap-2">

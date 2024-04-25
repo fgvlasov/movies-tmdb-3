@@ -1,6 +1,6 @@
 import { supabaseCli } from '@/modules/supabase/init.js';
 
-export const getUserByAuthId = async (authId) => {
+export const getUserByAuthId = async (authId: string) => {
   if (!authId) {
     throw new Error('Auth ID is required');
   }

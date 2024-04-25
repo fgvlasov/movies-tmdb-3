@@ -1,0 +1,429 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/FUnAVgaTs5xZWXcVzPJNxd9qGA.jpg",
+      "id": 934632,
+      "original_title": "Rebel Moon - Part Two: The Scargiver",
+      "overview": "The rebels gear up for battle against the Motherworld as unbreakable bonds are forged, heroes emerge — and legends are made.",
+      "poster_path": "/cxevDYdeFkiixRShbObdwAHBZry.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Rebel Moon - Part Two: The Scargiver",
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        28,
+        18,
+        10770
+      ],
+      "popularity": 804.055,
+      "release_date": "2024-04-19",
+      "video": false,
+      "vote_average": 6.266,
+      "vote_count": 314
+    },
+    {
+      "backdrop_path": "/87IVlclAfWL6mdicU1DDuxdwXwe.jpg",
+      "id": 693134,
+      "original_title": "Dune: Part Two",
+      "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+      "poster_path": "/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Dune: Part Two",
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        12
+      ],
+      "popularity": 2101.535,
+      "release_date": "2024-02-27",
+      "video": false,
+      "vote_average": 8.285,
+      "vote_count": 3247
+    },
+    {
+      "backdrop_path": "/4d0tMAk49gqbVwgvtQjCriBwyb8.jpg",
+      "id": 106379,
+      "original_name": "Fallout",
+      "overview": "The story of haves and have-nots in a world in which there’s almost nothing left to have. 200 years after the apocalypse, the gentle denizens of luxury fallout shelters are forced to return to the irradiated hellscape their ancestors left behind — and are shocked to discover an incredibly complex, gleefully weird, and highly violent universe waiting for them.",
+      "poster_path": "/AnsSKR9LuK0T9bAOcPVA3PUvyWj.jpg",
+      "media_type": "tv",
+      "adult": false,
+      "name": "Fallout",
+      "original_language": "en",
+      "genre_ids": [
+        10759,
+        10765,
+        9648
+      ],
+      "popularity": 2246.262,
+      "first_air_date": "2024-04-10",
+      "vote_average": 8.4,
+      "vote_count": 574,
+      "origin_country": [
+        "US"
+      ]
+    },
+    {
+      "backdrop_path": "/5zmiBoMzeeVdQ62no55JOJMY498.jpg",
+      "id": 126308,
+      "original_name": "Shōgun",
+      "overview": "In Japan in the year 1600, at the dawn of a century-defining civil war, Lord Yoshii Toranaga is fighting for his life as his enemies on the Council of Regents unite against him, when a mysterious European ship is found marooned in a nearby fishing village.",
+      "poster_path": "/7O4iVfOMQmdCSxhOg1WnzG1AgYT.jpg",
+      "media_type": "tv",
+      "adult": false,
+      "name": "Shōgun",
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        10768
+      ],
+      "popularity": 1458.65,
+      "first_air_date": "2024-02-27",
+      "vote_average": 8.681,
+      "vote_count": 490,
+      "origin_country": [
+        "US"
+      ]
+    },
+    {
+      "backdrop_path": "/kYWk8TW5TkpCWkB0mkUm72N0lb8.jpg",
+      "id": 838209,
+      "original_title": "파묘",
+      "overview": "After tracing the origin of a disturbing supernatural affliction to a wealthy family's ancestral gravesite, a team of paranormal experts relocates the remains—and soon discovers what happens to those who dare to mess with the wrong grave.",
+      "poster_path": "/pQYHouPsDw32FhDLr7E3jmw0WTk.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Exhuma",
+      "original_language": "ko",
+      "genre_ids": [
+        9648,
+        27,
+        53
+      ],
+      "popularity": 239.519,
+      "release_date": "2024-02-22",
+      "video": false,
+      "vote_average": 7.795,
+      "vote_count": 44
+    },
+    {
+      "backdrop_path": "/nbq3LfgLXnL5ixZ1Q74jTJmhmTS.jpg",
+      "id": 533535,
+      "original_title": "Deadpool & Wolverine",
+      "overview": "Third entry in the \"Deadpool\" franchise. Plot TBA.",
+      "poster_path": "/ajnzOECvXpa7VcVx0RSlq39XgHe.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Deadpool & Wolverine",
+      "original_language": "en",
+      "genre_ids": [
+        35,
+        878,
+        12
+      ],
+      "popularity": 228.819,
+      "release_date": "2024-07-24",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "backdrop_path": "/9NSXdVHeSfSHUv49OzLispFcpz1.jpg",
+      "id": 560016,
+      "original_title": "Monkey Man",
+      "overview": "Kid is an anonymous young man who ekes out a meager living in an underground fight club where, night after night, wearing a gorilla mask, he is beaten bloody by more popular fighters for cash. After years of suppressed rage, Kid discovers a way to infiltrate the enclave of the city’s sinister elite. As his childhood trauma boils over, his mysteriously scarred hands unleash an explosive campaign of retribution to settle the score with the men who took everything from him.",
+      "poster_path": "/4lhR4L2vzzjl68P1zJyCH755Oz4.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Monkey Man",
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        53,
+        80
+      ],
+      "popularity": 127.885,
+      "release_date": "2024-04-03",
+      "video": false,
+      "vote_average": 7.347,
+      "vote_count": 101
+    },
+    {
+      "backdrop_path": "/umyOinNa6vqqnqoVc9QqzyaapUz.jpg",
+      "id": 938614,
+      "original_title": "Late Night with the Devil",
+      "overview": "A live broadcast of a late-night talk show in 1977 goes horribly wrong, unleashing evil into the nation's living rooms.",
+      "poster_path": "/u3YQJctMzFN2wAvnkmXy41bXhFv.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Late Night with the Devil",
+      "original_language": "en",
+      "genre_ids": [
+        27
+      ],
+      "popularity": 230.667,
+      "release_date": "2024-03-19",
+      "video": false,
+      "vote_average": 7.177,
+      "vote_count": 130
+    },
+    {
+      "backdrop_path": "/sRLC052ieEzkQs9dEtPMfFxYkej.jpg",
+      "id": 848326,
+      "original_title": "Rebel Moon - Part One: A Child of Fire",
+      "overview": "When a peaceful colony on the edge of the galaxy finds itself threatened by the armies of the tyrannical Regent Balisarius, they dispatch Kora, a young woman with a mysterious past, to seek out warriors from neighboring planets to help them take a stand.",
+      "poster_path": "/ui4DrH1cKk2vkHshcUcGt2lKxCm.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Rebel Moon - Part One: A Child of Fire",
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        18,
+        28
+      ],
+      "popularity": 469.849,
+      "release_date": "2023-12-15",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 1712
+    },
+    {
+      "backdrop_path": "/uv2twFGMk2qBdyJBJAVcrpRtSa9.jpg",
+      "id": 929590,
+      "original_title": "Civil War",
+      "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.",
+      "poster_path": "/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Civil War",
+      "original_language": "en",
+      "genre_ids": [
+        10752,
+        28,
+        18
+      ],
+      "popularity": 679.17,
+      "release_date": "2024-04-10",
+      "video": false,
+      "vote_average": 7.532,
+      "vote_count": 298
+    },
+    {
+      "backdrop_path": "/lzWHmYdfeFiMIY4JaMmtR7GEli3.jpg",
+      "id": 438631,
+      "original_title": "Dune",
+      "overview": "Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence-a commodity capable of unlocking humanity's greatest potential-only those who can conquer their fear will survive.",
+      "poster_path": "/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Dune",
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        12
+      ],
+      "popularity": 535.213,
+      "release_date": "2021-09-15",
+      "video": false,
+      "vote_average": 7.79,
+      "vote_count": 11367
+    },
+    {
+      "backdrop_path": "/vTlK3chwsEToSoQJYUcJaHlNhIf.jpg",
+      "id": 618588,
+      "original_title": "Arthur the King",
+      "overview": "Over the course of ten days and 435 miles, an unbreakable bond is forged between pro adventure racer Michael Light and a scrappy street dog companion dubbed Arthur. As the team is pushed to their outer limits of endurance in the race, Arthur redefines what victory, loyalty and friendship truly mean.",
+      "poster_path": "/gxVcBc4VM0kAg9wX4HVg6KJHG46.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Arthur the King",
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        12
+      ],
+      "popularity": 188.957,
+      "release_date": "2024-03-15",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 31
+    },
+    {
+      "backdrop_path": "/qnVm19Vu2Sc14LoEj82pmqAYr3p.jpg",
+      "id": 845111,
+      "original_title": "Les trois mousquetaires : Milady",
+      "overview": "D'Artagnan, on a quest to rescue the abducted Constance, runs into the mysterious Milady de Winter again. The tension between the Catholics and the Protestants finally escalates, as the king declares war — forcing the now four musketeers into battle. But as the war goes on, they are tested physically, mentally and emotionally.",
+      "poster_path": "/rtosxP5sXuoRFPH4sVbMccLIPiV.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "The Three Musketeers: Milady",
+      "original_language": "fr",
+      "genre_ids": [
+        12,
+        28,
+        18
+      ],
+      "popularity": 878.62,
+      "release_date": "2023-12-13",
+      "video": false,
+      "vote_average": 6.585,
+      "vote_count": 306
+    },
+    {
+      "backdrop_path": "/5cCfqeUH2f5Gnu7Lh9xepY9TB6x.jpg",
+      "id": 967847,
+      "original_title": "Ghostbusters: Frozen Empire",
+      "overview": "The Spengler family returns to where it all started – the iconic New York City firehouse – to team up with the original Ghostbusters, who've developed a top-secret research lab to take busting ghosts to the next level. But when the discovery of an ancient artifact unleashes an evil force, Ghostbusters new and old must join forces to protect their home and save the world from a second Ice Age.",
+      "poster_path": "/6faYaQyiBPhqAizldJKq21mIVaE.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Ghostbusters: Frozen Empire",
+      "original_language": "en",
+      "genre_ids": [
+        14,
+        12,
+        35
+      ],
+      "popularity": 414.716,
+      "release_date": "2024-03-20",
+      "video": false,
+      "vote_average": 6.512,
+      "vote_count": 300
+    },
+    {
+      "backdrop_path": "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
+      "id": 1011985,
+      "original_title": "Kung Fu Panda 4",
+      "overview": "Po is gearing up to become the spiritual leader of his Valley of Peace, but also needs someone to take his place as Dragon Warrior. As such, he will train a new kung fu practitioner for the spot and will encounter a villain called the Chameleon who conjures villains from the past.",
+      "poster_path": "/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Kung Fu Panda 4",
+      "original_language": "en",
+      "genre_ids": [
+        16,
+        28,
+        10751,
+        35,
+        14
+      ],
+      "popularity": 1811.637,
+      "release_date": "2024-03-02",
+      "video": false,
+      "vote_average": 7.156,
+      "vote_count": 1211
+    },
+    {
+      "backdrop_path": "/2rmK7mnchw9Xr3XdiTFSxTTLXqv.jpg",
+      "id": 37854,
+      "original_name": "ワンピース",
+      "overview": "Years ago, the fearsome Pirate King, Gol D. Roger was executed leaving a huge pile of treasure and the famous \"One Piece\" behind. Whoever claims the \"One Piece\" will be named the new King of the Pirates.\n\nMonkey D. Luffy, a boy who consumed a \"Devil Fruit,\" decides to follow in the footsteps of his idol, the pirate Shanks, and find the One Piece. It helps, of course, that his body has the properties of rubber and that he's surrounded by a bevy of skilled fighters and thieves to help him along the way.\n\nLuffy will do anything to get the One Piece and become King of the Pirates!",
+      "poster_path": "/cMD9Ygz11zjJzAovURpO75Qg7rT.jpg",
+      "media_type": "tv",
+      "adult": false,
+      "name": "One Piece",
+      "original_language": "ja",
+      "genre_ids": [
+        10759,
+        35,
+        16
+      ],
+      "popularity": 188.083,
+      "first_air_date": "1999-10-20",
+      "vote_average": 8.733,
+      "vote_count": 4408,
+      "origin_country": [
+        "JP"
+      ]
+    },
+    {
+      "backdrop_path": "/pIFGZRCWjdQwECoXcphCCe1tl0B.jpg",
+      "id": 1041613,
+      "original_title": "Immaculate",
+      "overview": "An American nun embarks on a new journey when she joins a remote convent in the Italian countryside. However, her warm welcome quickly turns into a living nightmare when she discovers her new home harbours a sinister secret and unspeakable horrors.",
+      "poster_path": "/fdZpvODTX5wwkD0ikZNaClE4AoW.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Immaculate",
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "popularity": 705.298,
+      "release_date": "2024-03-20",
+      "video": false,
+      "vote_average": 6.283,
+      "vote_count": 214
+    },
+    {
+      "backdrop_path": "/504GSaoxBA5nLlcMsJfjzLZEKUp.jpg",
+      "id": 937287,
+      "original_title": "Challengers",
+      "overview": "Tennis player turned coach Tashi has taken her husband, Art, and transformed him into a world-famous Grand Slam champion. To jolt him out of his recent losing streak, she signs him up for a \"Challenger\" event — close to the lowest level of pro tournament — where he finds himself standing across the net from his former best friend and Tashi's former boyfriend.",
+      "poster_path": "/ciiaCM5GWoi8n2rt1VCWlLHG6JU.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Challengers",
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "popularity": 183.537,
+      "release_date": "2024-04-18",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 13
+    },
+    {
+      "backdrop_path": "/ySgY4jBvZ6qchrxKnBg4M8tZp8V.jpg",
+      "id": 1111873,
+      "original_title": "Abigail",
+      "overview": "After a group of would-be criminals kidnap the 12-year-old ballerina daughter of a powerful underworld figure, all they have to do to collect a $50 million ransom is watch the girl overnight. In an isolated mansion, the captors start to dwindle, one by one, and they discover, to their mounting horror, that they’re locked inside with no normal little girl.",
+      "poster_path": "/rx0Sg4cK5gO6QKkyI0JAGT5tLJb.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Abigail",
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        53,
+        35
+      ],
+      "popularity": 468.305,
+      "release_date": "2024-04-18",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 36
+    },
+    {
+      "backdrop_path": "/bkENfmxUY3UYsRLizJAhF5IQPvS.jpg",
+      "id": 1025596,
+      "original_title": "Blood for Dust",
+      "overview": "Reckless Ricky makes serious money dealing illegal weapons throughout the tri-state area and loves to flaunt it. Traveling salesman Cliff, covers the same territory Ricky runs guns through. Desperate to find some financial relief for his struggling family, Cliff agrees to partner with Ricky, to commit cross-state drug and gun deliveries for a mid-level American cartel boss John. When a simple exchange turns into a bloodbath after Ricky kills everyone in a territory grab, the pair find themselves in a pressure cooker situation where unlikely drug dealer Cliff must fight as hard as he can to stay alive.",
+      "poster_path": "/nvaCnkl8RilLhVAQXPFei0tqkqW.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "title": "Blood for Dust",
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "popularity": 94.742,
+      "release_date": "2024-04-19",
+      "video": false,
+      "vote_average": 7.222,
+      "vote_count": 9
+    }
+  ],
+  "total_pages": 1000,
+  "total_results": 20000
+}

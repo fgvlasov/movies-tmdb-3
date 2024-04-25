@@ -9,12 +9,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Search, Package2, CircleUser, LogIn } from 'lucide-react';
-import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { LogoutButton } from '@/app/(auth)/login/logout-button'
+import { getSession } from '@/actions/auth'
 
-const Header = () => {
-  const user = cookies().get("local_session")
+const Header = async () => {
+  const session = await getSession()
 
   return (
     <div className="container">
@@ -45,12 +45,14 @@ const Header = () => {
           >
             TV Series
           </Link>
+          {session.isAdmin &&
           <Link
             href="/users"
             className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
           >
             Users
           </Link>
+          }
         </nav>
 
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
@@ -64,7 +66,7 @@ const Header = () => {
               />
             </div>
           </form>
-          {user 
+          {session.isLoggedIn 
           ? 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -76,6 +78,11 @@ const Header = () => {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href="/profile" className="w-full">
+                    Profile
+                  </Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/favorites" className="w-full">
                     My Favs
