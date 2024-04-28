@@ -7,7 +7,7 @@ export const createAuthUser = async (email: string, password: string) => {
     })
     
     if (!error) { 
-      return data.user.id
+      return data
     }
     console.log("ERR:", error)
     

@@ -2,8 +2,9 @@ import { deleteAuthUser } from "@/modules/supabase/auth/deleteAuthUser.js"
 import { deleteUserByAuthId } from "@/modules/supabase/database/user/deleteUserByAuthId.js"
 
 export const delete_user = async (req, res) => {
-  let authId = req.user.auth_id
-
+  let authId = req.body.auth_id
+  // console.log("REQ TO DEL: ", req.body);
+  
   try {
     // Delete user from SU DB
     await deleteUserByAuthId(authId)

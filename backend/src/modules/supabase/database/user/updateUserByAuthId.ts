@@ -4,6 +4,7 @@ export const updateUserByAuthId = async (authId, updateData) => {
   if (!authId || !updateData) {
     throw new Error('Missing authId or updateData');
   }
+// console.log("Data to update in DB: ", updateData);
 
   try {
     const { data, error } = await supabaseCli

@@ -1,17 +1,21 @@
 import { updateUserByAuthId } from "@/modules/supabase/database/user/updateUserByAuthId.js"
 
 export const put_user = async (req, res) => {
-  let { username, isAdmin, fav_movies } = req.body
+  // console.log("REQ DATA BODY: ", [req.body.auth_id, req.body.is_admin]);
+  // console.log("REQ DATA: USER", req.user.auth_id);
+
+  let authId = !req.body.auth_id ? req.user.auth_id : req.body.auth_id
+  // console.log("authId: ", authId);
+  // return
   
   try {
-    let authId = req.user.auth_id
+    let dataToUpdate = {
+      username: req.body.username, 
+      is_admin: req.body.is_admin,
+      fav_movie: req.body.fav_movies
+    }
+    await updateUserByAuthId(authId, dataToUpdate)
     
-    await updateUserByAuthId(authId, { 
-      username, 
-      is_admin: isAdmin,
-      fav_movie: fav_movies
-    })
-
     res.status(200).send("Successfully updated user")
 
   } catch (error) {

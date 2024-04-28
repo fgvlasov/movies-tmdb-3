@@ -1,11 +1,11 @@
-import { login } from '@/actions/auth';
+import { signup } from '@/actions/auth';
 import { useFormState } from 'react-dom';
-import { SubmitButton } from './submit-button';
+import { SubmitButton } from '@/app/(auth)/login/submit-button';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link'
 
-export function LoginForm() {
-  const [state, formAction] = useFormState(login, undefined);
+export function SignupForm() {
+  const [state, formAction] = useFormState(signup, undefined);
 
   return (
     <form
@@ -44,8 +44,8 @@ export function LoginForm() {
           </ul>
         </div>
       )}
-      <SubmitButton label="LOGIN" />
-      <p className="text-center"><Link href="/signup" className="underline">SIGNUP</Link></p>
+      <SubmitButton label="SIGNUP" />
+      <p className="text-center"><Link href="/login" className="underline">LOGIN</Link></p>
     </form>
   );
 }
