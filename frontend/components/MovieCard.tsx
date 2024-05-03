@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { FolderCheck, FolderHeart } from 'lucide-react';
+import { addFavourites } from '@/actions/auth';
 
 interface MovieCardProps {
   data: {
@@ -47,13 +48,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         <CardContent>
           <div className="flex items-center justify-between">
             <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div>
+            {/* <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div> */}
             <div>{year} year</div>
-          </div>
-          <div className="flex items-center justify-end">
-            <Button variant="ghost">
-              <FolderCheck />
-            </Button>
-            <Button variant="ghost">
+            <Button variant="ghost" onClick={() => addFavourites(id)}>
               <FolderHeart />
             </Button>
           </div>

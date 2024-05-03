@@ -1,25 +1,25 @@
 // 'use client';
-import { NextPageContext } from 'next'
-import { getSession } from 'next-auth/react'
+import { NextPageContext } from 'next';
+import { getSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
-export async function getServerSideProps(context: NextPageContext) {
-  "use server"
-  const session = await getSession(context)
+// export async function getServerSideProps(context: NextPageContext) {
+//   "use server"
+//   const session = await getSession(context)
 
-  if(!session) {
-    return {
-      redirect: {
-        destination: '/trending',
-        permanent: false
-      }
-    }
-  }
+//   if(!session) {
+//     return {
+//       redirect: {
+//         destination: '/trending',
+//         permanent: false
+//       }
+//     }
+//   }
 
-  return {
-    props: {}
-  }
-}
+//   return {
+//     props: {}
+//   }
+// }
 
 const FavoritesPage = () => {
   // const [users, setUsers] = useState();

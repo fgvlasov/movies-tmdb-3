@@ -26,24 +26,22 @@ const Movies = () => {
   //console.log(page);
 
   return (
-    <div className="container">
-      <div className="row py-5 my-5">
-        <h1 className="text-lg font-semibold md:text-2xl">Movies</h1>
-        <Genre
-          genre={genre}
-          setGenre={setGenre}
-          setPage={setPage}
-          type="movie"
-          value={value}
-          setValue={setValue}
-        />
-        <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          {state.map((Val) => (
-            <MovieCard data={Val} key={Val.id} />
-          ))}
-        </div>
-        <Pagination page={page} setPage={setPage} />
+    <div className="row py-5 my-5">
+      <h1 className="text-lg font-semibold md:text-2xl">Movies</h1>
+      <Genre
+        genre={genre}
+        setGenre={setGenre}
+        setPage={setPage}
+        type="movie"
+        value={value}
+        setValue={setValue}
+      />
+      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+        {state.map((Val) => (
+          <MovieCard data={Val} key={Val.id} />
+        ))}
       </div>
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 };
