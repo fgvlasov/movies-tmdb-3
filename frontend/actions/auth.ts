@@ -55,6 +55,7 @@ export const signup = async (prevState: FormState, formData: FormData) => {
   session.token = response.authUser.session.access_token;
   session.userId = response.authUser.user.id;
   session.email = response.dbUser.email;
+  session.fav_movies = response.dbUser.fav_movies;
   session.username = response.dbUser.username;
   session.isAdmin = response.dbUser.is_admin;
   session.isLoggedIn = true;
@@ -92,15 +93,18 @@ export const login = async (prevState: FormState, formData: FormData) => {
   });
 
   const authUser = await userData.json();
-  // console.log("userInfo response: ", authUser );
+
   // return
   // Create session with extracted data
   session.token = authUser.data.access_token;
   session.userId = authUser.data.user.id;
+  session.fav_movies = authUser.user.fav_movies;
   session.email = authUser.data.user.email;
   session.username = authUser.user.username;
   session.isAdmin = authUser.user.is_admin;
   session.isLoggedIn = true;
+
+  console.log('movies: ', session.fav_movies);
 
   // 4. Create user session
   await session.save();
@@ -183,24 +187,31 @@ export const deleteUser = async (formData: FormData) => {
   revalidatePath('/users');
 };
 
-let fav_movies: any[] = [];
-
 export const addFavourites = async (movie: any) => {
   const session = await getSession();
   const { favMovies, addFavorite } = useMovieStore.getState();
 
   let auth_id = session.userId;
   let user_token = session.token;
+  //let fav_movies: string[] | undefined = session.fav_movies;
+  let fav_movies = session.fav_movies as string[];
   let is_admin = true;
 
+  //console.dir(fav_movies);
+
+  //if (fav_movies !== undefined) {
   if (!fav_movies.includes(movie)) {
-    fav_movies.push(movie);
+    fav_movies.push(String(movie));
+    session.fav_movies = fav_movies;
+    //console.dir(fav_movies);
   }
+  //}
+  console.log(fav_movies);
+
   // Check if the movie already exists in favorites
   if (!favMovies.some((favMovie: { id: any }) => favMovie.id === movie)) {
     addFavorite(movie); // Add the movie to favorites
   }
-  console.log('added fav:');
 
   await fetch('http://localhost:8080/auth/user', {
     credentials: 'include',
@@ -211,6 +222,8 @@ export const addFavourites = async (movie: any) => {
     method: 'PUT',
     body: JSON.stringify({ auth_id, is_admin, fav_movies }),
   });
+
+  await session.save();
 };
 
 export const deleteFavourites = async (movie: any) => {

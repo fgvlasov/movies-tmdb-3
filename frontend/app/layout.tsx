@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {children}
+        <div className="container">
+          <div className="row py-2 my-5">{children}</div>
+        </div>
       </body>
     </html>
     // </SessionWrapper>
