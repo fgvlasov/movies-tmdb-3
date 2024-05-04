@@ -1,8 +1,9 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { FolderCheck, FolderHeart } from 'lucide-react';
-import { addFavourites } from '@/actions/auth';
+import { addToFavorites, isInFavorites } from '@/actions/auth';
 
 interface MovieCardProps {
   data: {
@@ -29,6 +30,24 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   const year = new Date(release_date).getFullYear();
 
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const inFavorites = await isInFavorites(id);
+      setIsFavorite(inFavorites);
+    };
+
+    fetchFavorites();
+  }, [id]);
+
+  const handleFavoritesAction = async () => {
+    if (!isFavorite) {
+      await addToFavorites(id); // Add the movie to favorites
+    }
+    setIsFavorite(!isFavorite); // Toggle the favorite status
+  };
+
   return (
     <Card key={id}>
       <div className="card bg-dark" key={id}>
@@ -50,8 +69,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div>
             {/* <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div> */}
             <div>{year} year</div>
-            <Button variant="ghost" onClick={() => addFavourites(id)}>
-              <FolderHeart />
+            <Button variant="ghost" onClick={handleFavoritesAction}>
+              {isFavorite ? <FolderCheck /> : <FolderHeart />}
             </Button>
           </div>
         </CardContent>
