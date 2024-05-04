@@ -1,4 +1,4 @@
-import { changeSelfAdmin, getSession } from '@/actions/auth';
+import { changeSelfAdmin, getSession } from '@/actions/userActions';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 

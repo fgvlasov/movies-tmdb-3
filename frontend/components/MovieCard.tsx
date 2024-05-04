@@ -4,10 +4,10 @@ import { Card, CardContent, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { FolderCheck, FolderHeart } from 'lucide-react';
 import {
-  addToFavorites,
-  deleteFavourites,
-  isInFavorites,
-} from '@/actions/auth';
+  favouritesAddMovie,
+  favouritesDeleteMovie,
+  favouritesCheckMovie,
+} from '@/actions/favouritesActions';
 
 interface MovieCardProps {
   data: {
@@ -38,7 +38,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   useEffect(() => {
     const fetchFavorites = async () => {
-      const inFavorites = await isInFavorites(id);
+      const inFavorites = await favouritesCheckMovie(id);
       setIsFavorite(inFavorites);
     };
 
@@ -47,9 +47,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   const handleFavoritesAction = async () => {
     if (!isFavorite) {
-      await addToFavorites(id); // Add the movie to favorites
+      await favouritesAddMovie(id); // Add the movie to favorites
     } else {
-      await deleteFavourites(id);
+      await favouritesDeleteMovie(id);
     }
     setIsFavorite(!isFavorite); // Toggle the favorite status
   };

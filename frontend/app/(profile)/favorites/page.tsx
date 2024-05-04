@@ -1,5 +1,8 @@
 'use client';
-import { favoritesArray, isInFavorites } from '@/actions/auth';
+import {
+  favouritesList,
+  favouritesCheckMovie,
+} from '@/actions/favouritesActions';
 import MovieCard from '@/components/MovieCard';
 import { useEffect, useState } from 'react';
 
@@ -10,7 +13,7 @@ const FavoritesPage = () => {
     const fetchFavoriteMovies = async () => {
       try {
         // Get the array of favorite movie IDs
-        const favoriteIds = await favoritesArray();
+        const favoriteIds = await favouritesList();
 
         // Fetch movie details for each favorite movie ID
         const movieDetailsPromises = favoriteIds.map(async (movieId) => {
@@ -19,7 +22,7 @@ const FavoritesPage = () => {
           );
           const data = await response.json();
           // Check if the movie is in favorites
-          const isFavorite = await isInFavorites(movieId);
+          const isFavorite = await favouritesCheckMovie(movieId);
           // Add the isFavorite property to the movie object
           return { ...data, isFavorite };
         });

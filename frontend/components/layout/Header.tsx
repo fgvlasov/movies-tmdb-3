@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,15 +6,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 import { Search, Package2, CircleUser, LogIn } from 'lucide-react';
-import Link from 'next/link'
-import { LogoutButton } from '@/app/(auth)/login/logout-button'
-import { getSession } from '@/actions/auth'
+import Link from 'next/link';
+import { LogoutButton } from '@/app/(auth)/login/logout-button';
+import { getSession } from '@/actions/userActions';
 
 const Header = async () => {
-  const session = await getSession()
+  const session = await getSession();
 
   return (
     <div className="container">
@@ -45,14 +45,22 @@ const Header = async () => {
           >
             TV Series
           </Link>
-          {session.isAdmin &&
-          <Link
-            href="/users"
-            className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
-          >
-            Users
-          </Link>
-          }
+          {session.username && (
+            <Link
+              href="/favorites"
+              className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
+            >
+              My favourites
+            </Link>
+          )}
+          {session.isAdmin && (
+            <Link
+              href="/users"
+              className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
+            >
+              Users
+            </Link>
+          )}
         </nav>
 
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
@@ -66,11 +74,14 @@ const Header = async () => {
               />
             </div>
           </form>
-          {session.isLoggedIn 
-          ? 
+          {session.isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="secondary" size="icon" className="rounded-full">
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-full"
+                >
                   <CircleUser className="h-5 w-5" />
                   <span className="sr-only">Toggle user menu</span>
                 </Button>
@@ -95,21 +106,25 @@ const Header = async () => {
                     LOGOUT
                   </DropdownMenuItem>
                 </LogoutButton>
-                
               </DropdownMenuContent>
             </DropdownMenu>
-          : 
-            <Button asChild variant="secondary" size="icon" className="rounded-full">
+          ) : (
+            <Button
+              asChild
+              variant="secondary"
+              size="icon"
+              className="rounded-full"
+            >
               <Link href="/login">
                 <LogIn className="h-5 w-5" />
                 <span className="sr-only">Login</span>
               </Link>
             </Button>
-          }
+          )}
         </div>
       </header>
     </div>
   );
 };
 
-export default Header
+export default Header;

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck, ShieldOff, Trash2 } from 'lucide-react';
-import { changeUserAdmin, deleteUser } from '@/actions/auth';
+import { changeUserAdmin, deleteUser } from '@/actions/userActions';
 
 const AdminPage = () => {
   const [users, setUsers] = useState<[]>();
