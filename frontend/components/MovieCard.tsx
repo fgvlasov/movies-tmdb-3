@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { FolderCheck, FolderHeart } from 'lucide-react';
-import { addToFavorites, isInFavorites } from '@/actions/auth';
+import {
+  addToFavorites,
+  deleteFavourites,
+  isInFavorites,
+} from '@/actions/auth';
 
 interface MovieCardProps {
   data: {
@@ -44,6 +48,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const handleFavoritesAction = async () => {
     if (!isFavorite) {
       await addToFavorites(id); // Add the movie to favorites
+    } else {
+      await deleteFavourites(id);
     }
     setIsFavorite(!isFavorite); // Toggle the favorite status
   };

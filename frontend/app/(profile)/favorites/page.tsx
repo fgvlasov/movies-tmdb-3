@@ -1,5 +1,5 @@
 'use client';
-import { favoritesArray } from '@/actions/auth';
+import { favoritesArray, isInFavorites } from '@/actions/auth';
 import MovieCard from '@/components/MovieCard';
 import { useEffect, useState } from 'react';
 
@@ -18,7 +18,10 @@ const FavoritesPage = () => {
             `https://api.themoviedb.org/3/movie/${movieId}?api_key=e81c223d31b00c7d1171c0b4e9de5c4d`
           );
           const data = await response.json();
-          return data;
+          // Check if the movie is in favorites
+          const isFavorite = await isInFavorites(movieId);
+          // Add the isFavorite property to the movie object
+          return { ...data, isFavorite };
         });
 
         // Wait for all promises to resolve and set the fetched movie details
@@ -30,7 +33,7 @@ const FavoritesPage = () => {
     };
 
     fetchFavoriteMovies();
-  }, []);
+  }, [favoriteMovies]);
 
   return (
     <div className="container">

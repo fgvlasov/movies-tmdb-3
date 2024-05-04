@@ -104,7 +104,7 @@ export const login = async (prevState: FormState, formData: FormData) => {
   session.isAdmin = authUser.user.is_admin;
   session.isLoggedIn = true;
 
-  console.log('movies: ', session.fav_movies);
+  //console.log('movies: ', session.fav_movies);
 
   // 4. Create user session
   await session.save();
@@ -219,19 +219,29 @@ export const deleteFavourites = async (movie: any) => {
 
   let auth_id = session.userId;
   let user_token = session.token;
+  //let fav_movies: string[] | undefined = session.fav_movies;
   let is_admin = true;
+  let fav_movies = session.fav_movies as string[];
+  //console.dir(fav_movies);
 
-  fav_movies = fav_movies.filter((movieId) => movieId !== movie);
+  if (fav_movies.includes(String(movie))) {
+    fav_movies = fav_movies.filter((movieId) => movieId !== String(movie));
+    if (fav_movies.length > 0) {
+      session.fav_movies = fav_movies;
+      console.dir('After deleting:' + fav_movies);
+      await session.save();
 
-  await fetch('http://localhost:8080/auth/user', {
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${user_token}`,
-    },
-    method: 'PUT',
-    body: JSON.stringify({ auth_id, is_admin, fav_movies }),
-  });
+      await fetch('http://localhost:8080/auth/user', {
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user_token}`,
+        },
+        method: 'PUT',
+        body: JSON.stringify({ auth_id, is_admin, fav_movies }),
+      });
+    }
+  }
 };
 
 export const isInFavorites = async (movieId: any): Promise<boolean> => {
