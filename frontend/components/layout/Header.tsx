@@ -96,10 +96,10 @@ const Header = async () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/favorites" className="w-full">
-                    My Favs
+                    My Favourites
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>Support</DropdownMenuItem>
+
                 <DropdownMenuSeparator />
                 <LogoutButton>
                   <DropdownMenuItem className="w-full cursor-pointer">

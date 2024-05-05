@@ -24,7 +24,7 @@ const Movies = () => {
     fetchTrending();
   }, [page, genreURL]);
 
-  //console.log(page);
+  const handleFavoriteChanged = () => {};
 
   return (
     <div className="row py-5 my-5">
@@ -39,7 +39,11 @@ const Movies = () => {
       />
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         {state.map((Val) => (
-          <MovieCard data={Val} key={Val.id} />
+          <MovieCard
+            data={Val}
+            key={Val.id}
+            onFavoriteChanged={() => handleFavoriteChanged()}
+          />
         ))}
       </div>
       <Pagination page={page} setPage={setPage} />

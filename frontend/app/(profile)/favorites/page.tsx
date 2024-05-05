@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 const FavoritesPage = () => {
   const [favoriteMovies, setFavoriteMovies] = useState([]); // Store the fetched movie details
+  const [favoriteChanged, setFavoriteChanged] = useState(false);
 
   useEffect(() => {
     const fetchFavoriteMovies = async () => {
@@ -36,7 +37,12 @@ const FavoritesPage = () => {
     };
 
     fetchFavoriteMovies();
-  }, [favoriteMovies]);
+  }, [favoriteChanged]);
+
+  const handleFavoriteChanged = () => {
+    // Update state or trigger re-render
+    setFavoriteChanged(!favoriteChanged);
+  };
 
   return (
     <div className="container">
@@ -44,9 +50,15 @@ const FavoritesPage = () => {
         My favourites movies:
       </h1>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-        {favoriteMovies.map((Val) => (
-          <MovieCard data={Val} key={Val.id} />
-        ))}
+        {favoriteMovies.length > 0
+          ? favoriteMovies.map((Val) => (
+              <MovieCard
+                data={Val}
+                key={Val.id}
+                onFavoriteChanged={() => handleFavoriteChanged()}
+              />
+            ))
+          : 'No favourite movies'}
       </div>
     </div>
   );

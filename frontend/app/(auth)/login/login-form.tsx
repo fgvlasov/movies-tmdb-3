@@ -13,6 +13,16 @@ export function LoginForm() {
       className="w-[400px] p-4 border shadow-md my-20 flex flex-col gap-4 rounded-sm"
     >
       <div className="grid grid-cols-[20%,auto] items-center  gap-2">
+        <label htmlFor="email">Username</label>
+        <Input
+          id="username"
+          name="username"
+          type="username"
+          placeholder="Username"
+          className="p-2 border rounded-sm w-full"
+        />
+      </div>
+      <div className="grid grid-cols-[20%,auto] items-center  gap-2">
         <label htmlFor="email">Email</label>
         <Input
           id="email"

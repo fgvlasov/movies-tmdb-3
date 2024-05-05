@@ -19,9 +19,10 @@ interface MovieCardProps {
     release_date?: string;
     media_type?: string;
   };
+  onFavoriteChanged?: () => void;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ data, onFavoriteChanged }) => {
   const {
     id,
     name,
@@ -43,7 +44,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
     };
 
     fetchFavorites();
-  }, [id]);
+  }, []);
 
   const handleFavoritesAction = async () => {
     if (!isFavorite) {
@@ -52,6 +53,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
       await favouritesDeleteMovie(id);
     }
     setIsFavorite(!isFavorite); // Toggle the favorite status
+    onFavoriteChanged();
   };
 
   return (
@@ -73,9 +75,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         <CardContent>
           <div className="flex items-center justify-between">
             {media_type && (
-              <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div>
+              <div>
+                {media_type === 'tv' ? 'TV Series' : 'Movie'}
+                {release_date && ' (' + year + ')'}
+              </div>
             )}
-            {release_date && <div>{year} year</div>}
             <Button variant="ghost" onClick={handleFavoritesAction}>
               {isFavorite ? <FolderCheck /> : <FolderHeart />}
             </Button>
