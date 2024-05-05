@@ -1,51 +1,40 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Pagination from '@/components/Pagination';
-import Genre from '@/components/Genre';
-import useGenre from '@/hooks/useGenre';
 import MovieCard from '@/components/MovieCard';
+import { useSearchParams } from 'next/navigation';
 
-const Movies = () => {
+const SearchMovies = () => {
   const [state, setState] = useState([]); //store the fetched data
-  const [page, setPage] = useState(1); //keep a track of the page numbers
-  const [genre, setGenre] = useState([]); //used to store the original genre values
-  const [value, setValue] = useState([]); //used to store the selected genre values
-  const genreURL = useGenre(value);
+  const searchParams = useSearchParams();
 
-  const fetchTrending = async () => {
+  const query = searchParams.get('query');
+
+  const fetchSearch = async () => {
     const data = await fetch(`
-    https://api.themoviedb.org/3/discover/movie?api_key=e81c223d31b00c7d1171c0b4e9de5c4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`);
+    https://api.themoviedb.org/3/search/movie?query=${query}&api_key=e81c223d31b00c7d1171c0b4e9de5c4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false`);
     const dataJ = await data.json();
     setState(dataJ.results);
   };
 
   useEffect(() => {
-    fetchTrending();
-  }, [page, genreURL]);
-
-  //console.log(page);
+    if (query) {
+      fetchSearch();
+    }
+  }, [query]);
 
   return (
     <div className="container">
       <div className="row py-5 my-5">
-        <h1 className="text-lg font-semibold md:text-2xl">Movies</h1>
-        <Genre
-          genre={genre}
-          setGenre={setGenre}
-          setPage={setPage}
-          type="movie"
-          value={value}
-          setValue={setValue}
-        />
+        <h1 className="text-lg font-semibold md:text-2xl">Search</h1>
+
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           {state.map((Val) => (
             <MovieCard data={Val} key={Val.id} />
           ))}
         </div>
-        <Pagination page={page} setPage={setPage} />
       </div>
     </div>
   );
 };
 
-export default Movies;
+export default SearchMovies;

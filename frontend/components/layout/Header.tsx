@@ -7,11 +7,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { Search, Package2, CircleUser, LogIn } from 'lucide-react';
+import { Package2, CircleUser, LogIn } from 'lucide-react';
 import Link from 'next/link';
 import { LogoutButton } from '@/app/(auth)/login/logout-button';
 import { getSession } from '@/actions/userActions';
+import SearchBar from './searchForm';
 
 const Header = async () => {
   const session = await getSession();
@@ -27,24 +27,24 @@ const Header = async () => {
             <Package2 className="h-6 w-6" />
             <span className="sr-only">Movies TMDB 2</span>
           </Link>
-          <Link
+          {/* <Link
             href="/trending"
             className="text-foreground transition-colors hover:text-foreground"
           >
             Trending
-          </Link>
+          </Link> */}
           <Link
             href="/movies"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Movies
           </Link>
-          <Link
+          {/* <Link
             href="/series"
             className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
           >
             TV Series
-          </Link>
+          </Link> */}
           {session.username && (
             <Link
               href="/favorites"
@@ -64,16 +64,7 @@ const Header = async () => {
         </nav>
 
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-          <form className="ml-auto flex-1 sm:flex-initial">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search movies..."
-                className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-              />
-            </div>
-          </form>
+          <SearchBar />
           {session.isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
