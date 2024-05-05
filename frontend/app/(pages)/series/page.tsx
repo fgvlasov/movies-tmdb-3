@@ -14,36 +14,33 @@ const Movies = () => {
 
   const fetchTrending = async () => {
     const data = await fetch(`
-	https://api.themoviedb.org/3/discover/movie?api_key=e81c223d31b00c7d1171c0b4e9de5c4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`);
+	https://api.themoviedb.org/3/discover/tv?api_key=e81c223d31b00c7d1171c0b4e9de5c4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`);
     const dataJ = await data.json();
     setState(dataJ.results);
+    //console.log(dataJ.results);
   };
 
   useEffect(() => {
     fetchTrending();
   }, [page, genreURL]);
 
-  //console.log(page);
-
   return (
-    <div className="container">
-      <div className="row py-5 my-5">
-        <h1 className="text-lg font-semibold md:text-2xl">TV Series</h1>
-        <Genre
-          genre={genre}
-          setGenre={setGenre}
-          setPage={setPage}
-          type="movie"
-          value={value}
-          setValue={setValue}
-        />
-        <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          {state.map((Val) => (
-            <MovieCard data={Val} key={Val.id} />
-          ))}
-        </div>
-        <Pagination page={page} setPage={setPage} />
+    <div className="row py-5 my-5">
+      <h1 className="text-lg font-semibold md:text-2xl">TV Series</h1>
+      <Genre
+        genre={genre}
+        setGenre={setGenre}
+        setPage={setPage}
+        type="movie"
+        value={value}
+        setValue={setValue}
+      />
+      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+        {state.map((Val) => (
+          <MovieCard data={Val} key={Val.id} />
+        ))}
       </div>
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 };

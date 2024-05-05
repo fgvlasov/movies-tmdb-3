@@ -36,13 +36,10 @@ const AdminPage = () => {
                 Email: {user.email}
               </div>
               <div className="flex w-full border-l truncate text-wrap justify-star p-2 text-xs md:text-base">
-                Admin: {user.is_admin ? 'Yes' : 'No'}
-              </div>
-              <div className="flex w-full border-l truncate text-wrap justify-star p-2 text-xs md:text-base">
-                Favourites: {user.fav_movies}
+                {user.is_admin ? 'Admin' : ''}
               </div>
               <div className="flex justify-around border-l">
-                {user.is_admin ? (
+                {/*user.is_admin ? (
                   <form action={changeUserAdmin} className="flex items-center">
                     <input type="hidden" name="authId" value={user.auth_id} />
                     <input type="hidden" name="isAdmin" value={user.is_admin} />
@@ -64,14 +61,22 @@ const AdminPage = () => {
                       Grant "Admin" {user.is_admin}
                     </Button>
                   </form>
-                )}
-                <form action={deleteUser} className="flex items-center">
-                  <input type="hidden" name="authId" value={user.auth_id} />
-                  <Button type="submit" variant="ghost" className="flex gap-1">
-                    <Trash2 className="h-5 w-5" />
-                    Delete this user
-                  </Button>
-                </form>
+                )*/}
+                <div className="flex justify-around border-l">
+                  {!user.is_admin && (
+                    <form action={deleteUser} className="flex items-center">
+                      <input type="hidden" name="authId" value={user.auth_id} />
+                      <Button
+                        type="submit"
+                        variant="ghost"
+                        className="flex gap-1"
+                      >
+                        <Trash2 className="h-5 w-5" />
+                        Delete this user
+                      </Button>
+                    </form>
+                  )}
+                </div>
               </div>
             </div>
           ))}

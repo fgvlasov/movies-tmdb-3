@@ -17,6 +17,7 @@ const Movies = () => {
     https://api.themoviedb.org/3/discover/movie?api_key=e81c223d31b00c7d1171c0b4e9de5c4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`);
     const dataJ = await data.json();
     setState(dataJ.results);
+    //console.log(dataJ.results);
   };
 
   useEffect(() => {

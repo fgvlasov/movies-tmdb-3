@@ -68,13 +68,14 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           width="100%"
         />
         <CardTitle className="text-md  text-center font-medium p-2">
-          {title || name} --{id}
+          {title || name}
         </CardTitle>
         <CardContent>
           <div className="flex items-center justify-between">
-            <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div>
-            {/* <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div> */}
-            <div>{year} year</div>
+            {media_type && (
+              <div>{media_type === 'tv' ? 'TV Series' : 'Movie'}</div>
+            )}
+            {release_date && <div>{year} year</div>}
             <Button variant="ghost" onClick={handleFavoritesAction}>
               {isFavorite ? <FolderCheck /> : <FolderHeart />}
             </Button>

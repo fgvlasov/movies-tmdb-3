@@ -177,11 +177,34 @@ export const deleteUser = async (formData: FormData) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ auth_id: userId }),
+      body: JSON.stringify({ userId }),
     });
+    console.log(userId);
   } catch (error) {
     console.log('user not deleted: ', error);
   }
 
   revalidatePath('/users');
+};
+
+export const usersList = async (): Promise<string[]> => {
+  const session = await getSession();
+  let token = session.token;
+
+  try {
+    const response = await fetch('http://localhost:8080/users', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const users = await response.json();
+    console.log(users); // Log the fetched users data
+    return users;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error; // Rethrow the error so it can be caught by the caller
+  }
 };
