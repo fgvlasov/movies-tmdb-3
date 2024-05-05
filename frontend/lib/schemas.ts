@@ -1,5 +1,5 @@
-import { z } from 'zod'
- 
+import { z } from 'zod';
+
 export const SignupFormSchema = z.object({
   name: z
     .string()
@@ -15,8 +15,9 @@ export const SignupFormSchema = z.object({
       message: 'Contain at least one special character.',
     })
     .trim(),
-}) 
+});
 export const LoginFormSchema = z.object({
+  username: z.string().trim(),
   email: z.string().email({ message: 'Please enter a valid email.' }).trim(),
   password: z
     .string()
@@ -27,15 +28,15 @@ export const LoginFormSchema = z.object({
     //   message: 'Contain at least one special character.',
     // })
     .trim(),
-})
- 
+});
+
 export type FormState =
   | {
       errors?: {
-        name?: string[]
-        email?: string[]
-        password?: string[]
-      }
-      message?: string
+        name?: string[];
+        email?: string[];
+        password?: string[];
+      };
+      message?: string;
     }
-  | undefined
+  | undefined;

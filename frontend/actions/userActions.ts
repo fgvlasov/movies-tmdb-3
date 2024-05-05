@@ -26,6 +26,7 @@ export const signup = async (prevState: FormState, formData: FormData) => {
 
   // Validate form fields
   const validatedFields = LoginFormSchema.safeParse({
+    username: formData.get('username'),
     email: formData.get('email'),
     password: formData.get('password'),
   });
@@ -37,12 +38,12 @@ export const signup = async (prevState: FormState, formData: FormData) => {
   }
 
   // 2. Prepare data for insertion into database
-  const { email, password } = validatedFields.data;
+  const { username, email, password } = validatedFields.data;
 
   // 3. Insert the user into the database or call an Auth Library's API
   const userData = await fetch(`http://localhost:8080/signup`, {
     method: 'POST',
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ username, email, password }),
     headers: { 'Content-Type': 'application/json' },
   });
 
@@ -179,7 +180,7 @@ export const deleteUser = async (formData: FormData) => {
       },
       body: JSON.stringify({ userId }),
     });
-    console.log(userId);
+    //console.log(userId);
   } catch (error) {
     console.log('user not deleted: ', error);
   }
