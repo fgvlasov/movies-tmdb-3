@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
-import SessionWrapper from '@/components/SessionWrapper';
+import { AuthProvider } from '@/lib/AuthContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,15 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <SessionWrapper>
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <div className="container">
-          <div className="row py-2 my-5">{children}</div>
-        </div>
-      </body>
-    </html>
-    // </SessionWrapper>
+    <AuthProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          <div className="container">
+            <div className="row py-2 my-5">{children}</div>
+          </div>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

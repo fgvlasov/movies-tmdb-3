@@ -9,7 +9,7 @@ import {
   SessionData,
   defaultSession,
   sessionOptions,
-} from '@/lib/session-helpers';
+} from '@/lib/SessionHelpers';
 
 export const getSession = async () => {
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);

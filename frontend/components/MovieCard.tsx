@@ -8,6 +8,8 @@ import {
   favouritesDeleteMovie,
   favouritesCheckMovie,
 } from '@/actions/favouritesActions';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/lib/AuthContext';
 
 interface MovieCardProps {
   data: {
@@ -32,10 +34,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ data, onFavoriteChanged }) => {
     release_date,
     media_type,
   } = data;
-
+  const router = useRouter();
   const year = new Date(release_date).getFullYear();
 
   const [isFavorite, setIsFavorite] = useState(false);
+  const isLoggedIn = useAuth();
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -47,13 +50,21 @@ const MovieCard: React.FC<MovieCardProps> = ({ data, onFavoriteChanged }) => {
   }, []);
 
   const handleFavoritesAction = async () => {
-    if (!isFavorite) {
-      await favouritesAddMovie(id); // Add the movie to favorites
+    if (!isLoggedIn) {
+      // Handle case when user is not logged in
+      console.log('User is not logged in');
+      router.push('/login');
+      return;
     } else {
-      await favouritesDeleteMovie(id);
+      console.log('User is logged in');
+      if (!isFavorite) {
+        await favouritesAddMovie(id); // Add the movie to favorites
+      } else {
+        await favouritesDeleteMovie(id);
+      }
+      setIsFavorite(!isFavorite); // Toggle the favorite status
+      onFavoriteChanged;
     }
-    setIsFavorite(!isFavorite); // Toggle the favorite status
-    onFavoriteChanged();
   };
 
   return (
