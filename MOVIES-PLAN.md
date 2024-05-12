@@ -1,59 +1,29 @@
 ## IDEA
 
-Make our own backend APIs to handle the searchByTitle, searchByFilters, and getById functionalities of Streaming Availability API.
+Movies lists website with authorization and checking My favourite movies.
 
-Build Backend server.js by Express and streaming-availability libraries.
-JWT for the access token.
-
+Make my own backend APIs to work with users and data from database Supabase.
+Movies information taken from https://developer.themoviedb.org/reference/configuration-details.
+I use such functionalities of TheMovieDB API: Movies list, Trending movies, Search by keyword.
 Frontend can then make GET requests to these APIs to retrieve the desired data.
+
+Build Backend by Express.js with user endpoints and keepeng data in Supabase DB.
+Authorization info is keeping in session after login.
+Users can SignUp, see a list of Users, become Admins by revoking.
+If you are an Admin - you can delete other users.
 
 ## STRUCTURE
 
-We will have Next.js project with backend functionality, example to organize folder structure to separate the frontend and backend:
+We will have Next.js project for frontend, frontend and backend are separated in different folders:
 
-<pre>
-project-root/
-│
-├── frontend/
-│ ├── pages/
-│ │ ├── index.tsx
-│ │ ├── title.tsx
-│ │ └── ...
-│ ├── components/
-│ │ └── ...
-│ └── ...
-│
-└── backend/
-├── controllers/
-│ ├── movieController.js
-│ └── ...
-├── services/
-│ ├── movieService.js
-│ └── ...
-├── routes/
-│ ├── movieRoutes.js
-│ └── ...
-└── ...
-</pre>
+- **actions:** Actions handle incoming requests, perform any necessary processing, and send back responses Use for operating with Favourites movies and all user Actions like Login, Signup, Delete.
+- **hooks:** Here I made hooks for sorting movies by Genre.
+- **components:** All components for Layout, user interface, showing movies.
+- **lib:** Auth Wrapper, middleware, helpers with session, schemes for typescript.
 
-- **controllers:** Controllers handle incoming requests, perform any necessary processing, and send back responses.
-- **services:** Services encapsulate the business logic of your application. They interact with models and external services.
-- **routes:** Routes define the API endpoints and map them to controller methods.
+## TECHNOLOGIES
 
-Example for searching by Title:
-
-<code><pre>
-const handleSearch = async () => {
-try {
-const response = await fetch(`/api/movies/searchByTitle?title=${searchTerm}`);
-if (!response.ok) {
-throw new Error('Failed to search by title');
-}
-const data = await response.json();
-setSearchResults(data.movies);
-} catch (error) {
-console.error('Error searching by title:', error);
-}
-};
-
-</pre></code>
+- Next.js
+- Supabase
+- Express.js
+- Tailwind + Radix.ui for interface
